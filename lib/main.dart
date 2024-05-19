@@ -22,7 +22,10 @@ class _TileWidgetState extends State<MyApp> {
         children: [
           ListTile(
             leading: const Icon(Icons.ac_unit_sharp),
-            title: const Text("Cold button"),
+            title: const Text(
+              "Cold button",
+              style: TextStyle(color: Colors.red),
+            ),
             subtitle: const Text("button to cool up the weather"),
             trailing:
                 ElevatedButton(onPressed: () {}, child: const Text("Do it")),
