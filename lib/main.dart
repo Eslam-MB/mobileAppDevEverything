@@ -1,3 +1,4 @@
+import 'package:app1/newpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,42 +16,42 @@ class MyApp extends StatefulWidget {
 class _TileWidgetState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          body: Column(
-        children: [
-          ListTile(
-            leading: const Icon(Icons.ac_unit_sharp),
-            title: const Text(
-              "Cold button",
-              style: TextStyle(color: Colors.red),
-            ),
-            subtitle: const Text("button to cool up the weather"),
-            trailing:
-                ElevatedButton(onPressed: () {}, child: const Text("Do it")),
-          ),
-          ListTile(
-            leading: const Icon(Icons.hot_tub),
-            title: const Text("Hot button"),
-            subtitle: const Text("button to heat up the weather"),
-            trailing:
-                ElevatedButton(onPressed: () {}, child: const Text("Do it")),
-          ),
-          ListTile(
-            leading: Image.asset(
-              "assets/Schema.png",
-              height: 40,
-              width: 30,
-            ),
-            title: const Text("Hot button"),
-            subtitle: const Text("button to heat up the weather"),
-            trailing:
-                ElevatedButton(onPressed: () {}, child: const Text("Do it")),
-          ),
-        ],
-      )),
-    );
+    return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(body: Islam()
+            // Column(
+            //   children: [
+            //     ListTile(
+            //       leading: const Icon(Icons.ac_unit_sharp),
+            //       title: const Text(
+            //         "Cold button",
+            //         style: TextStyle(color: Colors.red),
+            //       ),
+            //       subtitle: const Text("button to cool up the weather"),
+            //       trailing:
+            //           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
+            //     ),
+            //     ListTile(
+            //       leading: const Icon(Icons.hot_tub),
+            //       title: const Text("Hot button"),
+            //       subtitle: const Text("button to heat up the weather"),
+            //       trailing:
+            //           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
+            //     ),
+            //     ListTile(
+            //       leading: Image.asset(
+            //         "assets/Schema.png",
+            //         height: 40,
+            //         width: 30,
+            //       ),
+            //       title: const Text("Hot button"),
+            //       subtitle: const Text("button to heat up the weather"),
+            //       trailing:
+            //           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
+            //     ),
+            //   ],
+            // )),
+            ));
   }
 }
 
