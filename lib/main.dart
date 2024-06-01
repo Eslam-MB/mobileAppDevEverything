@@ -1,65 +1,339 @@
-import 'package:app1/newpage.dart';
+// import 'package:app1/newpage.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-/////////////////////////////////////List Tile
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  State<MyApp> createState() => _TileWidgetState();
-}
-
-class _TileWidgetState extends State<MyApp> {
-  @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: Scaffold(body: Islam()
-            // Column(
-            //   children: [
-            //     ListTile(
-            //       leading: const Icon(Icons.ac_unit_sharp),
-            //       title: const Text(
-            //         "Cold button",
-            //         style: TextStyle(color: Colors.red),
-            //       ),
-            //       subtitle: const Text("button to cool up the weather"),
-            //       trailing:
-            //           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
-            //     ),
-            //     ListTile(
-            //       leading: const Icon(Icons.hot_tub),
-            //       title: const Text("Hot button"),
-            //       subtitle: const Text("button to heat up the weather"),
-            //       trailing:
-            //           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
-            //     ),
-            //     ListTile(
-            //       leading: Image.asset(
-            //         "assets/Schema.png",
-            //         height: 40,
-            //         width: 30,
-            //       ),
-            //       title: const Text("Hot button"),
-            //       subtitle: const Text("button to heat up the weather"),
-            //       trailing:
-            //           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
-            //     ),
-            //   ],
-            // )),
-            ));
+      debugShowCheckedModeBanner: false,
+      home: WelcomePage(),
+    );
   }
 }
 
+class WelcomePage extends StatelessWidget {
+  const WelcomePage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue.shade200,
+      body: Padding(
+        padding: const EdgeInsets.all(19.0),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            const Row(
+              children: [
+                SizedBox(
+                  width: 20,
+                ),
+                Text(
+                  "Hello",
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            const Row(
+              children: [
+                Text(
+                  "Lorem ipsum dolor sit amet",
+                  style: TextStyle(
+                    fontSize: 12,
+                  ),
+                )
+              ],
+            ),
+            const Spacer(),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SignInPage(),
+                  ),
+                );
+              },
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.blue,
+                  borderRadius: BorderRadius.circular(17),
+                ),
+                child: const Center(
+                  child: Text(
+                    "Sign In",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 7,
+            ),
+            GestureDetector(
+              onTap: () {},
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 40,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(17),
+                ),
+                child: const Center(
+                  child: Text(
+                    "Sign Up",
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SignInPage extends StatelessWidget {
+  const SignInPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.pink.shade100,
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back)),
+      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        color: Colors.pink.shade100,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Container(
+              width: MediaQuery.of(context).size.width,
+              height: 500,
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20))),
+              child: Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.grey.shade500,
+                      ),
+                      height: 35,
+                      width: MediaQuery.of(context).size.width,
+                      child: const TextField(
+                        decoration: InputDecoration(
+                            label: Text(
+                              "Email",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            labelStyle: TextStyle(
+                              fontSize: 15,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30)))),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.grey.shade500,
+                      ),
+                      height: 35,
+                      width: MediaQuery.of(context).size.width,
+                      child: const TextField(
+                        decoration: InputDecoration(
+                            label: Text(
+                              "Password",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            labelStyle: TextStyle(
+                              fontSize: 15,
+                            ),
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(30)))),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    GestureDetector(
+                      onTap: () {},
+                      child: Container(
+                        width: 200,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade900,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "Sign In",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const Text(
+                      "Forgot Password ?",
+                      style:
+                          TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            width: 100,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.black)),
+                            child: const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(Icons.add),
+                                  Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                        color: Colors.blue, fontSize: 12),
+                                  ),
+                                ]),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            width: 100,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                border: Border.all(color: Colors.black)),
+                            child: const Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Icon(Icons.phone_iphone_rounded),
+                                  Text(
+                                    "Sign In",
+                                    style: TextStyle(
+                                        color: Colors.blue, fontSize: 12),
+                                  ),
+                                ]),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 45,
+                    ),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account yet ?",
+                          style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              fontSize: 12,
+                              color: Colors.grey),
+                        ),
+                        SizedBox(
+                          width: 7,
+                        ),
+                        Text(
+                          "Sign Up",
+                          style: TextStyle(
+                              fontSize: 10, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+///////////////////////////List Tiles/////////////////////
+// Column(
+//   children: [
+//     ListTile(
+//       leading: const Icon(Icons.ac_unit_sharp),
+//       title: const Text(
+//         "Cold button",
+//         style: TextStyle(color: Colors.red),
+//       ),
+//       subtitle: const Text("button to cool up the weather"),
+//       trailing:
+//           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
+//     ),
+//     ListTile(
+//       leading: const Icon(Icons.hot_tub),
+//       title: const Text("Hot button"),
+//       subtitle: const Text("button to heat up the weather"),
+//       trailing:
+//           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
+//     ),
+//     ListTile(
+//       leading: Image.asset(
+//         "assets/Schema.png",
+//         height: 40,
+//         width: 30,
+//       ),
+//       title: const Text("Hot button"),
+//       subtitle: const Text("button to heat up the weather"),
+//       trailing:
+//           ElevatedButton(onPressed: () {}, child: const Text("Do it")),
+//     ),
+//   ],
+// )),
 ////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 /////////////////////////////////////////////////////////////////////////////////CALCULATOR WITH THE DOT DETECTOR
 // class MyApp extends StatefulWidget {
@@ -157,7 +431,6 @@ class _TileWidgetState extends State<MyApp> {
 // }
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-
 
 //////////////////////////////////////////////////////////////////////////////CALCULATOR WITHOUT THE DOT DETECTOR
 // class MyApp extends StatefulWidget {
@@ -268,7 +541,6 @@ class _TileWidgetState extends State<MyApp> {
 //   }
 // }
 
-
 // // //////////////////////////////////////////////////////////////////////// ASSIGNMENT 1 FLUTTER ROW EXAMPLE
 // // class MyApp extends StatelessWidget {
 // //   const MyApp({super.key});
@@ -344,7 +616,6 @@ class _TileWidgetState extends State<MyApp> {
 // //     );
 // //   }
 // // }
-
 
 // // //////////////////////////////////////////////////////////////////////// ASSIGNMENT 1 FLUTTER COLUMN EXAMPLE
 // //  class MyApp extends StatelessWidget {
