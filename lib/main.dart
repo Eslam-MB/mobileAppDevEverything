@@ -1,5 +1,6 @@
 // import 'package:app1/newpage.dart';
 
+import 'package:app1/newpage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WelcomePage(),
+      home: Islam(),
     );
   }
 }
