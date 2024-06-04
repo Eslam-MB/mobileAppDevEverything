@@ -25,6 +25,14 @@ class WelcomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_back)),
+      ),
       backgroundColor: Colors.blue.shade200,
       body: Padding(
         padding: const EdgeInsets.all(19.0),

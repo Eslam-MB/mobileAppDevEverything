@@ -1,3 +1,4 @@
+import 'package:app1/main.dart';
 import 'package:flutter/material.dart';
 import 'items.dart';
 
@@ -38,17 +39,25 @@ class _IslamState extends State<Islam> {
       body: ListView.builder(
           itemCount: listItems.length,
           itemBuilder: (context, index) {
-            return Card(
-              child: ListTile(
-                leading: CircleAvatar(
-                  radius: 30.0,
-                  backgroundImage:
-                      NetworkImage(listItems[index].imgImage.toString()),
+            return GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const WelcomePage()));
+              },
+              child: Card(
+                child: ListTile(
+                  leading: CircleAvatar(
+                    radius: 30.0,
+                    backgroundImage:
+                        NetworkImage(listItems[index].imgImage.toString()),
+                  ),
+                  title: Text(
+                    listItems[index].id.toString(),
+                  ),
+                  subtitle: Text(listItems[index].name.toString()),
                 ),
-                title: Text(
-                  listItems[index].id.toString(),
-                ),
-                subtitle: Text(listItems[index].name.toString()),
               ),
             );
           }),
